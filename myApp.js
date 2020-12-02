@@ -9,12 +9,23 @@ app.get('/', (req, res) => {
 
 app.get('/json', (req, res) => {
     if (process.env.MESSAGE_STYLE === 'uppercase') {
-        res.json({message: 'HELLO JSON'})
+        res.json({ message: 'HELLO JSON' })
     } else {
-        res.json({message: 'Hello json'})
+        res.json({ message: 'Hello json' })
     }
 })
 
 app.use(express.static(`${__dirname}/public`))
+
+app.use((req, res, next) => {
+    console.log(`${req.method} ${req.path} - ${req.ip}`);
+    next();
+})
+
+if (!process.env.PORT) {
+    app.listen(3000, () => {
+        console.log('server started.');
+    })
+}
 
 module.exports = app;
