@@ -22,10 +22,10 @@ app.use((req, res, next) => {
     next();
 })
 
-if (!process.env.PORT) {
-    app.listen(3000, () => {
-        console.log('server started.');
-    })
-}
+// if (!process.env.PORT) {
+//     app.listen(3000, () => {
+//         console.log('server started.');
+//     })
+// }
 
 module.exports = app;
