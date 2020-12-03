@@ -28,6 +28,10 @@ app.get('/now', (req, res, next) => {
     res.json({ time: req.time })
 })
 
+app.get('/:word/echo', (req, res) => {
+    res.json({ echo: req.params.word })
+})
+
 if (!process.env.PORT) {
     app.listen(3000, () => {
         console.log('server started.');
