@@ -21,6 +21,13 @@ app.get('/json', (req, res) => {
     }
 })
 
+app.get('/now', (req, res, next) => {
+    req.time = new Date().toString()
+    next();
+}, (req, res) => {
+    res.json({ time: req.time })
+})
+
 if (!process.env.PORT) {
     app.listen(3000, () => {
         console.log('server started.');
