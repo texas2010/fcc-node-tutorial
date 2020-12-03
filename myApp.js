@@ -38,11 +38,9 @@ app.get('/:word/echo', (req, res) => {
 // })
 
 app.route('/name').get((req, res) => {
-    const { first, last } = req.query
-    res.json({ name: `${first} ${last}` })
+    res.json(req.query)
 }).post((req, res) => {
-    const { first, last } = req.query
-    res.json({ name: `${first} ${last}` })
+    res.json(req.query)
 })
 
 if (!process.env.PORT) {
