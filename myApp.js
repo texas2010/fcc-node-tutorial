@@ -32,6 +32,17 @@ app.get('/:word/echo', (req, res) => {
     res.json({ echo: req.params.word })
 })
 
+// app.get('/name', (req, res, next) => {
+//     console.log(req.query);
+//     next()
+// })
+
+app.route('/name').get((req, res) => {
+    res.json(req.query)
+}).post((req, res) => {
+    res.json(req.query)
+})
+
 if (!process.env.PORT) {
     app.listen(3000, () => {
         console.log('server started.');
